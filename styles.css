@@ -52,12 +52,12 @@ body {
    ============================================ */
 .fixed-logo {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-    height: 80px;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, #DC143C 0%, #B31230 100%);
-    border-radius: 50%;
+    border-radius: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,7 @@ body {
     z-index: 1000;
     cursor: pointer;
     transition: var(--transition);
-    border: 3px solid #000;
+    border: 3px solid #000000;
 }
 
 .fixed-logo:hover {
@@ -74,8 +74,8 @@ body {
 }
 
 .fixed-logo img {
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
