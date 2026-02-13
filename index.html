@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lujuria.Burgerhouse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Logo fijo superior izquierdo -->
+    <div class="fixed-logo">
+        <img src="assets/logo.jpeg" alt="Lujuria Burger House Logo">
+    </div>
+
+    <!-- Header con imagen de fondo -->
+    <header class="header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1 class="restaurant-name">Lujuria Burger house</h1>
+            <p class="restaurant-tagline">"Hecho para provocar"</p>
+            <button class="view-menu-btn" onclick="scrollToMenu()">Cocina Oculta</button>
+        </div>
+    </header>
+
+    <!-- Tabs de categorías -->
+    <div class="categories-tabs-container" id="categoriesTabsContainer">
+        <div class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+        </div>
+        <div class="categories-tabs" id="categoriesTabs">
+            <!-- Tabs se generan dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Carrito flotante (resumen) -->
+    <div class="floating-cart" id="floatingCart">
+        <div class="cart-badge" id="cartBadge">0</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+    </div>
+
+    <!-- Menú de productos -->
+    <main class="main-content" id="menuSection">
+        <div class="container">
+            <div id="menuContainer" class="products-list">
+                <!-- Productos se cargan aquí -->
+            </div>
+            
+            <!-- Texto promocional al final -->
+            <div class="promo-text">
+                Pecar nunca supo tan bien.
+                <p>© 2026 Webindev. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Panel del carrito lateral -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Tu Pedido</h2>
+                <button class="close-cart" id="closeCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="cart-body" id="cartBody">
+                <div class="empty-cart">
+                    <p>Tu carrito está vacío</p>
+                    <span class="empty-icon">🛒</span>
+                </div>
+            </div>
+
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span class="total-amount" id="cartTotal">$0</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    Finalizar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Finalizar Pedido</h2>
+                <button class="close-modal" id="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Formulario de datos -->
+                <form id="checkoutForm" class="checkout-form">
+                    <div class="form-section">
+                        <h3>Datos del Cliente</h3>
+                        <div class="form-group">
+                            <label for="customerName">Nombre completo *</label>
+                            <input type="text" id="customerName" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Teléfono *</label>
+                            <input type="tel" id="customerPhone" required placeholder="Ej: 3001234567">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerAddress">Dirección de entrega *</label>
+                            <textarea id="customerAddress" required placeholder="Calle, número, barrio, referencias"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="orderNotes">Observaciones (opcional)</label>
+                            <textarea id="orderNotes" placeholder="Detalles adicionales de tu pedido"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Zona de Entrega</h3>
+                        <div class="radio-group" id="deliveryZones">
+                            <!-- Zonas se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Método de Pago</h3>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="paymentMethod" value="Transferencia" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">💳 Transferencia</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="paymentMethod" value="Contraentrega" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">💵 Contraentrega</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Resumen del Pedido</h3>
+                        <div class="order-summary" id="orderSummary">
+                            <!-- Resumen se cargará dinámicamente -->
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-order-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Confirmar y Enviar por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

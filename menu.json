@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "name": "Hamburguesas",
+        "icon": "🍔",
+        "products": [
+            {
+                "id": "burger-1",
+                "name": "La consentida + papas",
+                "description": "Pan mantequilla, doble carne smash (2X100g), dip de tocineta,queso cheddar,queso doble crema.",
+                "price": 20000,
+                "icon": "🍔",
+                "image": "assets/laconsentida.jpeg"
+            },
+            {
+                "id": "burger-2",
+                "name": "La Tipica + papas",
+                "description": "Pan brioche con ajonjolí,carne de res (200g), queso cheddar, queso doble crema, dip de tocineta, tomate, lechuga, pepinillo.",
+                "price": 20000,
+                "icon": "🍔",
+                "image": "assets/latipica.jpeg"
+            }
+        ]
+    }
+]
